@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+        	http://code.alibabatech.com/schema/dubbo
+        	http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <dubbo:application name="luush-provider" owner="admin" organization="dubbox"/>
+    <!-- 声明注册中心 -->
+    <dubbo:registry protocol="zookeeper" address="localhost:2181"/>
+    <dubbo:protocol name="dubbo" port="18889"></dubbo:protocol>
+    <dubbo:service interface="org.lszjaf.dagger.service.TestService" ref="testService" protocol="dubbo"></dubbo:service>
+    <bean id="testService" class="org.lszjaf.dagger.service.impl.TestServiceImpl"></bean>
+</beans>
+ 
+ 
+ 

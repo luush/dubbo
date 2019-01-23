@@ -1,0 +1,17 @@
+
+dubbo:
+  protocol:
+    name: dubbo
+    port: 18889
+  registry:
+    address: zookeeper://localhost:2181
+#  scan: org.lszjaf.dagger.controller
+  application:
+    name: luush-consumer
+
+
+server:
+  port: 10501
+spring:
+  application:
+    name: service-dubbo-consumer
