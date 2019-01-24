@@ -7,7 +7,7 @@ public class ZookeeperTest {
 
 
     public static void main(String[] luush) throws Exception {
-        ZooKeeper zooKeeper = new ZooKeeper("127.0.0.1:2181", 30000, new TestWatch());
+        ZooKeeper zooKeeper = new ZooKeeper("127.0.0.1:2182", 30000, new TestWatch());
         System.out.println(zooKeeper);
         String node = "/node2";
         Stat stat = zooKeeper.exists(node,false);
@@ -17,7 +17,7 @@ public class ZookeeperTest {
             System.out.println(createResult);
         }
 
-        Thread.sleep(5000);
+//        Thread.sleep(5000);
         byte[] bytes = zooKeeper.getData(node,false,stat);
         System.out.println(new String(bytes));
         zooKeeper.close();

@@ -1,0 +1,17 @@
+#单个的zookeeper
+dubbo:
+  protocol:
+    name: dubbo
+    port: 18889
+  registry:
+    address: zookeeper://localhost:2181
+  scan: org.lszjaf.dagger.servicedubboprovider.impl
+  application:
+    name: luush-consumer
+
+
+server:
+  port: 10500
+spring:
+  application:
+    name: service-dubbo-provider

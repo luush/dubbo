@@ -4,7 +4,7 @@ import com.alibaba.dubbo.config.annotation.Service;
 import org.lszjaf.dagger.service.DubboService;
 
 import java.util.Random;
-@Service
+@Service(group = "test1")
 public class DubboServiceImpl implements DubboService {
 
     @Override

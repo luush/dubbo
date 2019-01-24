@@ -7,10 +7,15 @@
         	http://code.alibabatech.com/schema/dubbo
         	http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
-    <dubbo:application name="luush-consumer" owner="user" organization="dubbox"/>
-    <!-- 声明注册中心 -->
-    <dubbo:registry protocol="zookeeper" address="localhost:2181"/>
-    <dubbo:reference interface="org.lszjaf.dagger.service.TestService" id="testService"></dubbo:reference>
+    <!-- 定义了提供方应用信息，用于计算依赖关系。在dubbo-admin或者dubbo-monitor会显示这些信息，方便识别-->
+    <dubbo:application name="luush-provider" owner="user" organization="dubbox"/>
+    <!-- 声明注册中心 想zookeeper订阅provider的地址，由zookeeper定时推送-->
+    <dubbo:registry protocol="zookeeper" address="localhost:2181,localhost:2182"/>
+    <!-- 使用dubbo协议调用定义好的api接口，如果有分组后面也可以增加消费者组-->
+    <dubbo:reference interface="org.lszjaf.dagger.service.TestService" id="testService" group="test"></dubbo:reference>
+    <dubbo:reference interface="org.lszjaf.dagger.service.DubboService" id="dubboService" group="test1"></dubbo:reference>
+    <!-- 这个消费者组，要和提供者组保持一致-->
+    <!--<dubbo:consumer group="test"></dubbo:consumer>-->
 </beans>
  
  

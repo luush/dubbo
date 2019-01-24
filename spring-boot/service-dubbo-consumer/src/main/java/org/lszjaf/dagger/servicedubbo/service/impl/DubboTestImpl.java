@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class DubboTestImpl {
 
-    //dubbo使用
-    @Reference
+    //dubbo使用group分组
+    @Reference(group = "test1")
     private DubboService dubboService;
 
     public Integer testDubbo(String name){
